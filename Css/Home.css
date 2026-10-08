@@ -237,7 +237,6 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 34.6rem;
   padding: 10rem 0;
   border-radius: 60px;
   outline: 1px solid var(--color-black10);
@@ -266,8 +265,6 @@
 
 .faq__item {
   width: 100%;
-  min-height: 7.1rem;
-  max-height: 9.4rem;
   margin-bottom: 2rem;
   padding: 2rem;
   border: 1px solid var(--color-black10);
@@ -277,6 +274,54 @@
 
 .faq__item:last-child {
   margin-bottom: 0;
+}
+
+.faq__icon {
+  position: relative;
+  flex-shrink: 0;
+  width: 2.4rem;
+  height: 2.4rem;
+  margin-top: 0.3rem;
+  transition: transform 0.3s ease;
+}
+
+.faq__icon::before,
+.faq__icon::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 0.3rem;
+  border-radius: 0.3rem;
+  background-color: currentColor;
+  transform: translate(-50%, -50%);
+}
+
+.faq__icon::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.faq__item[open] .faq__icon {
+  transform: rotate(45deg);
+}
+
+.faq__question {
+  cursor: pointer;
+  list-style: none;
+  font-size: var(--font-size-p1);
+  font-weight: 400;
+}
+
+.faq__question::-webkit-details-marker {
+  display: none; /* Safari */
+}
+
+.faq__answer {
+  font-size: var(--font-size-p2);
+  color: var(--color-black20);
+  font-weight: 400;
+  display: none;
 }
 
 .faq__banner {
@@ -307,7 +352,7 @@
 }
 
 /* ---------- Tablet (>= 812px) ---------- */
-/* @media (min-width: 812px) {
+@media (min-width: 812px) {
   .hero {
     display: flex;
     flex-direction: column;
@@ -374,10 +419,10 @@
   .faq {
     padding: 5rem 4rem;
   }
-} */
+}
 
 /* Tablet only: 4 cards in a 2x2 grid with smaller text */
-/* @media (min-width: 812px) and (max-width: 1199.98px) {
+@media (min-width: 812px) and (max-width: 1199.98px) {
   .testimonial--hide-on-tablet {
     display: none;
   }
@@ -389,10 +434,10 @@
   .testimonial__text {
     font-size: var(--font-size-p2);
   }
-} */
+}
 
 /* ---------- Desktop (>= 1200px) ---------- */
-/* @media (min-width: 1200px) {
+@media (min-width: 1200px) {
   .hero {
     padding: 10rem;
   }
@@ -451,4 +496,4 @@
   .faq {
     padding: 5rem;
   }
-} */
+}
